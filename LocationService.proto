@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "Common.proto";
+import "google/protobuf/wrappers.proto";
+
+service LocationService {
+    
+    rpc search(google.protobuf.StringValue) returns (SearchResponse) {}
+    
+    rpc reverseGeocode(Coordinate) returns (Location) {}
+}
+
+message SearchResponse {
+       
+    repeated Location Location = 1;
+}

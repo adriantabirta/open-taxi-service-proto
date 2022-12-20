@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "Common.proto";
+import "RideModels.proto";
+import "google/protobuf/Empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service TaxiOrderService {
+    
+    rpc createOrder(CreateOrderRequest) returns (stream RideResponse);
+    
+    rpc sendChatMessage (google.protobuf.StringValue) returns (google.protobuf.Empty);
+        
+    rpc cancelRide (CancelRideRequest) returns (google.protobuf.Empty);
+}
+
+message CreateOrderRequest {
+    
+    repeated Location locations = 1;
+}

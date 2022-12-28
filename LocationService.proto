@@ -1,7 +1,10 @@
 syntax = "proto3";
+package opentaxi;
 
-import "Common.proto";
+import "open-taxi-service-proto/Common.proto";
 import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/adriantabirta/open-taxi-service-go;opentaxi";
 
 service LocationService {
     

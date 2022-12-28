@@ -1,9 +1,12 @@
 syntax = "proto3";
+package opentaxi;
 
-import "Common.proto";
-import "RideModels.proto";
 import "google/protobuf/Empty.proto";
 import "google/protobuf/wrappers.proto";
+import "open-taxi-service-proto/Common.proto";
+import "open-taxi-service-proto/RideModels.proto";
+
+option go_package = "github.com/adriantabirta/open-taxi-service-go;opentaxi";
 
 service TaxiOrderService {
     

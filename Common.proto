@@ -1,7 +1,6 @@
 syntax = "proto3";
-package opentaxi;
 
-option go_package = "github.com/adriantabirta/open-taxi-service-go;opentaxi";
+option go_package = "./;rpc";
 
 message Coordinate {
     

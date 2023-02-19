@@ -9,10 +9,10 @@ service AuthenticationService {
     
     rpc sendAuthenticationCode (google.protobuf.StringValue) returns (google.protobuf.Empty);
     
-    rpc authenticate (AuthenticationRequest) returns (google.protobuf.StringValue);
+    rpc authenticate (AuthenticationRemoteDataModel) returns (google.protobuf.StringValue);
 }
 
-message AuthenticationRequest {
+message AuthenticationRemoteDataModel {
    
     string phoneNumber = 1;
     

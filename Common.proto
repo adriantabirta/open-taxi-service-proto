@@ -2,16 +2,16 @@ syntax = "proto3";
 
 option go_package = "./;rpc";
 
-message Coordinate {
+message CoordinateRemoteDataModel {
     
     double latitude = 1;
     
     double longitude = 32;
 }
 
-message Location {
+message LocationRemoteDataModel {
     
     optional string name = 1;
     
-    optional Coordinate coordinate = 2;
+    optional CoordinateRemoteDataModel coordinate = 2;
 }

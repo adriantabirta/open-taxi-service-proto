@@ -7,12 +7,12 @@ option go_package = "./;rpc";
 
 service LocationService {
     
-    rpc search(google.protobuf.StringValue) returns (SearchResponse) {}
+    rpc search(google.protobuf.StringValue) returns (SearchedLocationsRemoteDataModel) {}
     
-    rpc reverseGeocode(Coordinate) returns (Location) {}
+    rpc reverseGeocode(CoordinateRemoteDataModel) returns (LocationRemoteDataModel) {}
 }
 
-message SearchResponse {
+message SearchedLocationsRemoteDataModel {
        
-    repeated Location locations = 1;
+    repeated LocationRemoteDataModel locations = 1;
 }

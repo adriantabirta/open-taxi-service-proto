@@ -13,6 +13,8 @@ service LocationService {
 }
 
 message SearchedLocationsRemoteDataModel {
-       
-    repeated LocationRemoteDataModel locations = 1;
+    
+    repeated LocationRemoteDataModel recent = 1;
+
+    repeated LocationRemoteDataModel locations = 2;
 }

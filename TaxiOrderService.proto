@@ -6,9 +6,6 @@ import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
 
-// LocationRemoteDataModel
-// CoordinateRemoteDataModel
-
 service TaxiOrderService {
     
     rpc createOrder(CreateOrderRemoteDataModel) returns (stream RideRemoteDataModel);
@@ -56,6 +53,8 @@ message RideRemoteDataModel {
     optional DriverRemoteDataModel driver = 4;
     
     optional string estimatedPrice = 5;
+
+    repeated CoordinateRemoteDataModel route = 6;
 }
 
 message CancelRideRemoteDataModel {

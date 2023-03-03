@@ -15,3 +15,12 @@ message LocationRemoteDataModel {
     
     optional CoordinateRemoteDataModel coordinate = 2;
 }
+
+message DriverLocationRemoteDataModel {
+    
+    int64 token = 1;
+    
+    double longitude = 2;
+    
+    double latitude = 3;
+}

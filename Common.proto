@@ -16,6 +16,7 @@ message LocationRemoteDataModel {
     optional CoordinateRemoteDataModel coordinate = 2;
 }
 
+// used to update driver location over udp
 message DriverLocationRemoteDataModel {
     
     int64 token = 1;

@@ -55,6 +55,9 @@ message RideRemoteDataModel {
     optional string estimatedPrice = 5;
 
     repeated CoordinateRemoteDataModel route = 6;
+
+    // When RideStatus = SEARCHING_TAXI, this should be an array with cabs near than should be animated
+    repeated CoordinateRemoteDataModel nearestDrivers = 7;
 }
 
 message CancelRideRemoteDataModel {

@@ -21,9 +21,9 @@ message OrderRemoteDataModel {
 
     LocationRemoteDataModel to = 3;
 
-    string distance = 4;
+    float distance = 4;
 
-    string price = 5;
+    int32 price = 5;
 }
 
 message OrdersRemoteDataModel {

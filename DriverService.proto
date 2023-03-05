@@ -8,7 +8,7 @@ option go_package = "./;rpc";
 
 service DriverService {
     
-    rpc nearestClients (google.protobuf.Empty) returns (stream OrdersRemoteDataModel) {}
+    rpc nearestOrders (google.protobuf.Empty) returns (stream OrdersRemoteDataModel) {}
 
     rpc takeOrder (google.protobuf.Int32Value) returns (google.protobuf.Empty) {}
 }

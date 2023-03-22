@@ -13,6 +13,11 @@ service DriverService {
     rpc takeOrder (google.protobuf.Int32Value) returns (google.protobuf.Empty) {}
 }
 
+message OrdersRemoteDataModel {
+   
+    repeated OrderRemoteDataModel orders = 2;
+}
+
 message OrderRemoteDataModel {
 
     int32 id = 1;
@@ -24,9 +29,4 @@ message OrderRemoteDataModel {
     float distance = 4;
 
     int32 price = 5;
-}
-
-message OrdersRemoteDataModel {
-   
-    repeated OrderRemoteDataModel orders = 2;
 }

@@ -8,11 +8,20 @@ option go_package = "./;rpc";
 
 service TaxiOrderService {
     
-    rpc createOrder(CreateOrderRemoteDataModel) returns (stream RideRemoteDataModel);
+    rpc createOrder(CreateOrderRemoteDataModel) returns (google.protobuf.Empty);
     
+    rpc orderStatus(google.protobuf.Int64Value) returns (stream RideRemoteDataModel);
+
     rpc sendChatMessage (google.protobuf.StringValue) returns (google.protobuf.Empty);
         
     rpc cancelRide (CancelRideRemoteDataModel) returns (google.protobuf.Empty);
+
+    rpc nearestDrivers(google.protobuf.Empty) returns (stream DriversRemoteDataModel);
+}
+
+message DriversRemoteDataModel {
+
+    repeated CoordinateRemoteDataModel driverCoordinates = 1;
 }
 
 message CreateOrderRemoteDataModel {
@@ -55,9 +64,6 @@ message RideRemoteDataModel {
     optional string estimatedPrice = 5;
 
     repeated CoordinateRemoteDataModel route = 6;
-
-    // When RideStatus = SEARCHING_TAXI, this should be an array with cabs near than should be animated
-    repeated CoordinateRemoteDataModel nearestDrivers = 7;
 }
 
 message CancelRideRemoteDataModel {

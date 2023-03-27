@@ -10,7 +10,7 @@ service DriverService {
     
     rpc nearestOrders (google.protobuf.Empty) returns (stream OrdersRemoteDataModel) {}
 
-    rpc takeOrder (google.protobuf.Int32Value) returns (google.protobuf.Empty) {}
+    rpc takeOrder (google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 }
 
 message OrdersRemoteDataModel {
@@ -20,7 +20,7 @@ message OrdersRemoteDataModel {
 
 message OrderRemoteDataModel {
 
-    int32 id = 1;
+    int64 id = 1;
 
     LocationRemoteDataModel from = 2;
 

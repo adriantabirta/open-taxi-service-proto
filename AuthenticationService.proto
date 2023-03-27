@@ -7,9 +7,21 @@ option go_package = "./;rpc";
 
 service AuthenticationService {
     
-    rpc sendAuthenticationCode (google.protobuf.StringValue) returns (google.protobuf.Empty);
+    rpc sendAuthenticationCode (SendSmsCodeRemoteDataModel) returns (google.protobuf.Empty);
     
     rpc authenticate (AuthenticationRemoteDataModel) returns (google.protobuf.StringValue);
+}
+
+message SendSmsCodeRemoteDataModel {
+   
+    enum AccountType {
+        CLIENT = 0;
+        DRIVER = 1;
+    }
+
+    string phoneNumber = 1;
+    
+    AccountType accountType = 2;
 }
 
 message AuthenticationRemoteDataModel {

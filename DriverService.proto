@@ -1,14 +1,13 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
 import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
 
 service DriverService {
 
-    rpc nearestDrivers(google.protobuf.Empty) returns (stream DriversRemoteDataModel);
+    rpc nearestDrivers(CoordinateRemoteDataModel) returns (stream DriversRemoteDataModel);
 }
 
 message DriversRemoteDataModel {

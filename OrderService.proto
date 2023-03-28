@@ -72,15 +72,15 @@ message OrderRemoteDataModel {
     
     RideStatus rideStatus = 2;
 
-    repeated LocationRemoteDataModel wayPoints = 1;
-    
     optional CarRemoteDataModel car = 3;
     
     optional DriverRemoteDataModel driver = 4;
     
     optional string estimatedPrice = 5;
 
-    repeated CoordinateRemoteDataModel route = 6;
+    repeated LocationRemoteDataModel wayPoints = 6;
+
+    repeated CoordinateRemoteDataModel route = 7;
 }
 
 message CancelOrderRemoteDataModel {

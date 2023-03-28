@@ -1,32 +1,17 @@
 syntax = "proto3";
 
-import "open-taxi-service-proto/Common.proto";
-import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
 
 service DriverService {
-    
-    rpc nearestOrders (google.protobuf.Empty) returns (stream OrdersRemoteDataModel) {}
 
-    rpc takeOrder (google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+    rpc nearestDrivers(google.protobuf.Empty) returns (stream DriversRemoteDataModel);
 }
 
-message OrdersRemoteDataModel {
-   
-    repeated OrderRemoteDataModel orders = 2;
-}
+message DriversRemoteDataModel {
 
-message OrderRemoteDataModel {
-
-    int64 id = 1;
-
-    LocationRemoteDataModel from = 2;
-
-    LocationRemoteDataModel to = 3;
-
-    float distance = 4;
-
-    int32 price = 5;
+    repeated CoordinateRemoteDataModel driverCoordinates = 1;
 }

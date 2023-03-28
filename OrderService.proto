@@ -6,22 +6,37 @@ import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
 
-service TaxiOrderService {
+service OrderService {
     
     rpc createOrder(CreateOrderRemoteDataModel) returns (google.protobuf.Empty);
     
-    rpc orderStatus(google.protobuf.Int64Value) returns (stream RideRemoteDataModel);
+    rpc orderStatus(google.protobuf.Int64Value) returns (stream OrderRemoteDataModel);
 
     rpc sendChatMessage (google.protobuf.StringValue) returns (google.protobuf.Empty);
         
-    rpc cancelRide (CancelRideRemoteDataModel) returns (google.protobuf.Empty);
+    rpc cancelOrder (CancelOrderRemoteDataModel) returns (google.protobuf.Empty);
 
-    rpc nearestDrivers(google.protobuf.Empty) returns (stream DriversRemoteDataModel);
+    rpc nearestOrders (google.protobuf.Empty) returns (stream NearOrdersRemoteDataModel) {}
+
+    rpc takeOrder (google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 }
 
-message DriversRemoteDataModel {
+message NearOrdersRemoteDataModel {
+   
+    repeated ShortOrderRemoteDataModel orders = 2;
+}
 
-    repeated CoordinateRemoteDataModel driverCoordinates = 1;
+message ShortOrderRemoteDataModel {
+
+    int64 id = 1;
+
+    LocationRemoteDataModel from = 2;
+
+    LocationRemoteDataModel to = 3;
+
+    float distance = 4;
+
+    int32 price = 5;
 }
 
 message CreateOrderRemoteDataModel {
@@ -29,7 +44,7 @@ message CreateOrderRemoteDataModel {
     repeated LocationRemoteDataModel locations = 1;
 }
 
-message RideRemoteDataModel {
+message OrderRemoteDataModel {
     
     enum RideStatus {
         SEARCHING_TAXI = 0;
@@ -56,6 +71,8 @@ message RideRemoteDataModel {
     int64 id = 1;
     
     RideStatus rideStatus = 2;
+
+    repeated LocationRemoteDataModel wayPoints = 1;
     
     optional CarRemoteDataModel car = 3;
     
@@ -66,7 +83,7 @@ message RideRemoteDataModel {
     repeated CoordinateRemoteDataModel route = 6;
 }
 
-message CancelRideRemoteDataModel {
+message CancelOrderRemoteDataModel {
     
     enum CancelRideReason {
         BAD_DRIVER = 0;

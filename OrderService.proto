@@ -76,7 +76,7 @@ message OrderRemoteDataModel {
     
     optional DriverRemoteDataModel driver = 4;
     
-    optional string estimatedPrice = 5;
+    optional int64 estimatedPrice = 5;
 
     repeated LocationRemoteDataModel wayPoints = 6;
 

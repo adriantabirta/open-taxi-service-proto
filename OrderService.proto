@@ -36,7 +36,7 @@ message ShortOrderRemoteDataModel {
 
     float distance = 4;
 
-    int32 price = 5;
+    int64 estimatedPrice = 5;
 }
 
 message CreateOrderRemoteDataModel {

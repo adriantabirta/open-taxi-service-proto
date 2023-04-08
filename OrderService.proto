@@ -8,7 +8,7 @@ option go_package = "./;rpc";
 
 service OrderService {
     
-    rpc createOrder(CreateOrderRemoteDataModel) returns (google.protobuf.Empty);
+    rpc createOrder(CreateOrderRemoteDataModel) returns (google.protobuf.Int64Value);
     
     rpc orderStatus(google.protobuf.Int64Value) returns (stream OrderRemoteDataModel);
 

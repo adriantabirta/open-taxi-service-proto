@@ -15,8 +15,9 @@ service AuthenticationService {
 message SendSmsCodeRemoteDataModel {
    
     enum AccountType {
-        CLIENT = 0;
+        ADMIN = 0;
         DRIVER = 1;
+        CLIENT = 2;
     }
 
     string phoneNumber = 1;

@@ -53,6 +53,7 @@ message OrderRemoteDataModel {
         WAITING_FOR_CLIENT = 3;
         DRIVING_TO_DESTINATION = 4;
         ARRIVED_AT_DESTINATION = 5;
+        CLOSED = 6;
     }
     
     message CarRemoteDataModel {

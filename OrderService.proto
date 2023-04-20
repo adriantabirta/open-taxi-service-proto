@@ -30,13 +30,11 @@ message ShortOrderRemoteDataModel {
 
     int64 id = 1;
 
-    LocationRemoteDataModel from = 2;
+    repeated LocationRemoteDataModel locations = 2;
 
-    LocationRemoteDataModel to = 3;
+    float routeDistance = 3;
 
-    float distance = 4;
-
-    int64 estimatedPrice = 5;
+    int32 estimatedPrice = 4;
 }
 
 message CreateOrderRemoteDataModel {
@@ -77,11 +75,13 @@ message OrderRemoteDataModel {
     
     optional DriverRemoteDataModel driver = 4;
     
-    optional int64 estimatedPrice = 5;
+    repeated LocationRemoteDataModel waypoints = 5;
 
-    repeated LocationRemoteDataModel wayPoints = 6;
+    repeated CoordinateRemoteDataModel route = 6;
 
-    repeated CoordinateRemoteDataModel route = 7;
+    optional int64 routeDistance = 7;
+
+    optional int64 estimatedPrice = 8;
 }
 
 message CancelOrderRemoteDataModel {

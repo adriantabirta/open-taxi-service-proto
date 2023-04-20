@@ -32,7 +32,7 @@ message ShortOrderRemoteDataModel {
 
     repeated LocationRemoteDataModel locations = 2;
 
-    float routeDistance = 3;
+    int32 routeDistance = 3;
 
     int32 estimatedPrice = 4;
 }
@@ -79,9 +79,9 @@ message OrderRemoteDataModel {
 
     repeated CoordinateRemoteDataModel route = 6;
 
-    optional int64 routeDistance = 7;
+    optional int32 routeDistance = 7;
 
-    optional int64 estimatedPrice = 8;
+    optional int32 estimatedPrice = 8;
 }
 
 message CancelOrderRemoteDataModel {

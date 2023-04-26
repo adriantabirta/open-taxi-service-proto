@@ -8,7 +8,7 @@ message CoordinateRemoteDataModel {
     
     double latitude = 1;
     
-    double longitude = 32;
+    double longitude = 2;
 }
 
 message LocationRemoteDataModel {

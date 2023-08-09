@@ -20,6 +20,8 @@ service OrderService {
     rpc nearestOrders (google.protobuf.Empty) returns (stream NearOrdersRemoteDataModel) {}
 
     rpc takeOrder (google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+
+    rpc startTheRideForOrder(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 }
 
 message NearOrdersRemoteDataModel {
@@ -83,8 +85,6 @@ message OrderRemoteDataModel {
     optional int32 routeDistance = 7;
 
     optional int32 estimatedPrice = 8;
-
-    optional google.protobuf.Timestamp arrivedAtClientTimestamp = 9;
 }
 
 message CancelOrderRemoteDataModel {

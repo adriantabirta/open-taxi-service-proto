@@ -2,7 +2,6 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
-import "google/protobuf/timestamp.proto";
 import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
@@ -85,6 +84,8 @@ message OrderRemoteDataModel {
     optional int32 routeDistance = 7;
 
     optional int32 estimatedPrice = 8;
+
+    optional int32 estimatedDuration = 9;
 }
 
 message CancelOrderRemoteDataModel {

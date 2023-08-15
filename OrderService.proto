@@ -21,6 +21,8 @@ service OrderService {
     rpc takeOrder (google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 
     rpc startTheRideForOrder(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
+
+    rpc arrivedAtLocation(ArrivedAtLocationRemoteDataModel) returns (google.protobuf.Empty) {}
 }
 
 message NearOrdersRemoteDataModel {
@@ -99,4 +101,11 @@ message CancelOrderRemoteDataModel {
     CancelRideReason reason = 1;
     
     optional string comment = 2;
+}
+
+message ArrivedAtLocationRemoteDataModel {
+
+     int64 orderId = 1;
+    
+     CoordinateRemoteDataModel coordinate = 2;
 }

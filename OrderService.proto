@@ -23,6 +23,8 @@ service OrderService {
     rpc startTheRideForOrder(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 
     rpc arrivedAtLocation(ArrivedAtLocationRemoteDataModel) returns (google.protobuf.Empty) {}
+
+    rpc closeOrder(google.protobuf.Int64Value) returns (google.protobuf.Empty) {}
 }
 
 message NearOrdersRemoteDataModel {

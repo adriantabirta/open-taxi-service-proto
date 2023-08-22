@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "./;rpc";
+
+service UserService {
+    
+    rpc registerDevice (RegisterDeviceRemoteDataModel) returns (google.protobuf.Empty);
+}
+
+message RegisterDeviceRemoteDataModel {
+   
+    enum DeviceType {
+        ios = 0;
+        android = 1;
+    }
+
+    DeviceType deviceType = 1;
+    
+    string deviceToken = 2;
+}

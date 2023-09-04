@@ -59,6 +59,8 @@ message OrderLocationRemoteDataModel {
 message CreateOrderRemoteDataModel {
     
     repeated LocationRemoteDataModel locations = 1;
+
+    PaymentMethod paymentMethod = 2;
 }
 
 message OrderRemoteDataModel {

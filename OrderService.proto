@@ -32,7 +32,7 @@ message NearOrdersRemoteDataModel {
     repeated ShortOrderRemoteDataModel orders = 2;
 }
 
-message ShortOrderRemoteDataModel {cd
+message ShortOrderRemoteDataModel {
 
     int64 id = 1;
 

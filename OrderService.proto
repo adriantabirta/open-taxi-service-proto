@@ -32,15 +32,17 @@ message NearOrdersRemoteDataModel {
     repeated ShortOrderRemoteDataModel orders = 2;
 }
 
-message ShortOrderRemoteDataModel {
+message ShortOrderRemoteDataModel {cd
 
     int64 id = 1;
 
-    repeated OrderLocationRemoteDataModel locations = 2;
+    PaymentMethod paymentMethod = 2;
 
-    int32 routeDistance = 3;
+    repeated OrderLocationRemoteDataModel locations = 3;
 
-    int32 estimatedPrice = 4;
+    int32 routeDistance = 4;
+
+    int32 estimatedPrice = 5;
 }
 
 message OrderLocationRemoteDataModel {

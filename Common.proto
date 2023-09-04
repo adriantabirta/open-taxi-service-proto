@@ -29,3 +29,10 @@ message DriverLocationRemoteDataModel {
 
     google.protobuf.Timestamp timestamp = 4;
 }
+
+enum PaymentMethod {
+    PAYMENT_METHOD_CASH             = 0;
+    PAYMENT_METHOD_INSTANT_PAYMENT  = 1;
+    PAYMENT_METHOD_INSTANT_CARD     = 2;
+    PAYMENT_METHOD_INSTANT_CRYPTO   = 3;
+};

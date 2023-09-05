@@ -114,10 +114,12 @@ message CancelOrderRemoteDataModel {
         ACCIDENT = 1;
         ANOTHER = 2;
     }
+
+    int64 orderId = 1;
     
-    CancelRideReason reason = 1;
+    CancelRideReason reason = 2;
     
-    optional string comment = 2;
+    optional string comment = 3;
 }
 
 message ArrivedAtLocationRemoteDataModel {

@@ -14,8 +14,10 @@ message CoordinateRemoteDataModel {
 message LocationRemoteDataModel {
     
     optional string name = 1;
+
+    optional string region = 2;
     
-    optional CoordinateRemoteDataModel coordinate = 2;
+    optional CoordinateRemoteDataModel coordinate = 3;
 }
 
 // used to update driver location over udp

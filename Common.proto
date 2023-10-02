@@ -21,15 +21,20 @@ message LocationRemoteDataModel {
 }
 
 // used to update driver location over udp
+// - token: jwt, valid
+// - coordinate2.timestamp > coordinate1.timestamp - always, to be a valid packed otherwise will be ignored
 message DriverLocationRemoteDataModel {
     
+    message DriverCoordinateRemoteDataModel {
+        CoordinateRemoteDataModel coordinate = 1;
+        google.protobuf.Timestamp timestamp = 2;
+    }
+
     string token = 1;
     
-    double longitude = 2;
+    DriverCoordinateRemoteDataModel coordinate1 = 2;
     
-    double latitude = 3;
-
-    google.protobuf.Timestamp timestamp = 4;
+    DriverCoordinateRemoteDataModel coordinate2 = 3;
 }
 
 enum PaymentMethod {

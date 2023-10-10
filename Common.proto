@@ -27,7 +27,8 @@ message DriverLocationRemoteDataModel {
     
     message DriverCoordinateRemoteDataModel {
         CoordinateRemoteDataModel coordinate = 1;
-        google.protobuf.Timestamp timestamp = 2;
+        double horizontalAccuracy = 2;
+        google.protobuf.Timestamp timestamp = 3;
     }
 
     string token = 1;

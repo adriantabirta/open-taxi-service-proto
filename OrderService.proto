@@ -87,6 +87,11 @@ message OrderRemoteDataModel {
         string name = 2;
         string phoneNumber = 3;
     }
+
+    message SpeedRemoteDataModel {
+        float ratio = 1;
+        float speed = 2;
+    }
     
     int64 id = 1;
     
@@ -100,11 +105,13 @@ message OrderRemoteDataModel {
 
     repeated CoordinateRemoteDataModel route = 6;
 
-    optional int32 routeDistance = 7;
+    repeated SpeedRemoteDataModel speeds = 7;
 
-    optional int32 estimatedPrice = 8;
+    optional int32 routeDistance = 8;
 
-    optional int32 estimatedDuration = 9;
+    optional int32 estimatedPrice = 9;
+
+    optional int32 estimatedDuration = 10;
 }
 
 message CancelOrderRemoteDataModel {

@@ -28,11 +28,11 @@ message DriverDetailsRemoteDataModel {
 
     string fullname = 3;
 
-    int online = 4;
+    int64 online = 4;
 
     float rating = 5;
 
-    int earnedMoney = 6;
+    int64 earnedMoney = 6;
 
     CarRemoteDataModel car = 8;
 }

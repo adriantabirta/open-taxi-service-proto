@@ -66,20 +66,15 @@ message CreateOrderRemoteDataModel {
 message OrderRemoteDataModel {
     
     enum RideStatus {
-        SEARCHING_TAXI = 0;
-        DRIVING_TO_CLIENT = 1;
-        ARRIVED_TO_CLIENT_ADDRESS = 2;
-        WAITING_FOR_CLIENT = 3;
-        DRIVING_TO_DESTINATION = 4;
-        ARRIVED_AT_DESTINATION = 5;
-        CLOSED = 6;
-    }
-    
-    message CarRemoteDataModel {
-        int64 id = 1;
-        string plateNumber = 2;
-        string color = 3;
-        string model = 4;
+        RIDE_STATUS_SEARCHING_TAXI             = 0;
+        RIDE_STATUS_DRIVING_TO_CLIENT          = 1;
+        RIDE_STATUS_ARRIVED_TO_CLIENT_ADDRESS  = 2;
+        RIDE_STATUS_WAITING_FOR_CLIENT         = 3;
+        RIDE_STATUS_DRIVING_TO_DESTINATION     = 4;
+        RIDE_STATUS_ARRIVED_AT_DESTINATION     = 5;
+        RIDE_STATUS_CANCELED_BY_CLIENT         = 6;
+        RIDE_STATUS_CANCELED_BY_DRIVER         = 7;
+        RIDE_STATUS_CLOSED                     = 8;
     }
     
     message DriverRemoteDataModel {

@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 import "open-taxi-service-proto/Common.proto";
 
 option go_package = "./;rpc";
@@ -7,9 +9,52 @@ option go_package = "./;rpc";
 service DriverService {
 
     rpc nearestDrivers(CoordinateRemoteDataModel) returns (stream DriversRemoteDataModel);
+
+    rpc accountDetails(google.protobuf.Empty) returns (DriverDetailsRemoteDataModel);
+
+    rpc transactions(google.protobuf.Empty) returns (TransactionsRemoteDataModel);
 }
 
 message DriversRemoteDataModel {
 
     repeated CoordinateRemoteDataModel driverCoordinates = 1;
+}
+
+message DriverDetailsRemoteDataModel {
+
+    int64 id = 1;
+    
+    string photo = 2;
+
+    string fullname = 3;
+
+    int online = 4;
+
+    float rating = 5;
+
+    int earnedMoney = 6;
+
+    CarRemoteDataModel car = 8;
+}
+
+message TransactionsRemoteDataModel {
+
+    repeated TransactionRemoteDataModel data = 1;
+}
+
+enum TransactionType {
+    EARNED      = 0;
+    WITHDRAW    = 1;
+    SYSTEM_FEE  = 2;
+};
+
+message TransactionRemoteDataModel {
+
+    int64 id = 1;
+
+    TransactionType type = 2;
+
+    int64 amount = 3;
+
+    google.protobuf.Timestamp timestamp = 4;
 }

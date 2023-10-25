@@ -21,8 +21,6 @@ message LocationRemoteDataModel {
 }
 
 // used to update driver location over udp
-// - token: jwt, valid
-// - coordinate2.timestamp > coordinate1.timestamp - always, to be a valid packed otherwise will be ignored
 message DriverLocationRemoteDataModel {
     
     message DriverCoordinateRemoteDataModel {
@@ -44,3 +42,10 @@ enum PaymentMethod {
     PAYMENT_METHOD_INSTANT_CARD     = 2;
     PAYMENT_METHOD_INSTANT_CRYPTO   = 3;
 };
+
+message CarRemoteDataModel {
+    int64 id = 1;
+    string plateNumber = 2;
+    string color = 3;
+    string model = 4;
+}

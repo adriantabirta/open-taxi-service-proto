@@ -4,9 +4,11 @@ import "google/protobuf/empty.proto";
 
 option go_package = "./;rpc";
 
-service UserService {
+service DeviceService {
     
     rpc registerDevice (RegisterDeviceRemoteDataModel) returns (google.protobuf.Empty);
+
+    rpc unregisterDevice (RegisterDeviceRemoteDataModel) returns (google.protobuf.Empty);
 }
 
 message RegisterDeviceRemoteDataModel {

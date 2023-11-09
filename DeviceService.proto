@@ -7,8 +7,6 @@ option go_package = "./;rpc";
 service DeviceService {
     
     rpc registerDevice (RegisterDeviceRemoteDataModel) returns (google.protobuf.Empty);
-
-    rpc unregisterDevice (google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
 message RegisterDeviceRemoteDataModel {

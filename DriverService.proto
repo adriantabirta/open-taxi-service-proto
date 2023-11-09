@@ -34,7 +34,7 @@ message DriverDetailsRemoteDataModel {
 
     int64 earnedMoney = 6;
 
-    CarRemoteDataModel car = 8;
+    optional CarRemoteDataModel car = 8;
 }
 
 message TransactionsRemoteDataModel {

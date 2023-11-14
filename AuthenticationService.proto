@@ -32,4 +32,12 @@ message AuthenticationRemoteDataModel {
     string phoneNumber = 1;
     
     int32 smsCode = 2;
+
+    optional int32 idnp = 3;
+
+    optional string firstName = 4;
+
+    optional string lastName = 5;
+
+    optional string email = 6;
 }

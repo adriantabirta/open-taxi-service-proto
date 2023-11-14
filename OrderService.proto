@@ -106,7 +106,9 @@ message OrderRemoteDataModel {
 
     optional int32 estimatedPrice = 9;
 
-    optional int32 estimatedDuration = 10;
+    int32 actualPrice = 10;
+
+    optional int32 estimatedDuration = 11;
 }
 
 message CancelOrderRemoteDataModel {

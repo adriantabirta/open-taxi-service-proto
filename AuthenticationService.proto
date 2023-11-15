@@ -33,7 +33,7 @@ message AuthenticationRemoteDataModel {
     
     int32 smsCode = 2;
 
-    optional int32 idnp = 3;
+    optional string idnp = 3;
 
     optional string firstName = 4;
 

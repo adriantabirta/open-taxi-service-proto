@@ -3,6 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "open-taxi-service-proto/Common.proto";
+import "open-taxi-service-proto/validate.proto";
 
 option go_package = "./;rpc";
 
@@ -58,9 +59,9 @@ message OrderLocationRemoteDataModel {
 
 message CreateOrderRemoteDataModel {
     
-    repeated LocationRemoteDataModel locations = 1;
+    repeated LocationRemoteDataModel locations = 1 [(validate.rules).repeated = {min_items: 2, max_items: 5}];
 
-    PaymentMethod paymentMethod = 2;
+    PaymentMethod paymentMethod = 2 [(validate.rules).enum.defined_only = true];
 }
 
 message OrderRemoteDataModel {

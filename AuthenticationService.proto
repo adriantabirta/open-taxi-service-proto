@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "open-taxi-service-proto/validate.proto";
 
 option go_package = "./;rpc";
 
@@ -22,22 +23,30 @@ message SendSmsCodeRemoteDataModel {
         CLIENT = 2;
     }
 
-    string phoneNumber = 1;
+    string phoneNumber = 1 [(validate.rules).string = {prefix: "+373", min_len: 12, max_len:12}];
     
-    AccountType accountType = 2;
+    AccountType accountType = 2 [(validate.rules).enum = {in: [0,2]}];
 }
 
 message AuthenticationRemoteDataModel {
    
-    string phoneNumber = 1;
+    string phoneNumber = 1 [(validate.rules).string = {prefix: "+373", min_len: 12, max_len:12}];
     
-    int32 smsCode = 2;
+    int32 smsCode = 2 [(validate.rules).int32 = {gte: 100000, lte: 999999}];
 
-    optional string idnp = 3;
+    optional string idnp = 3 [(validate.rules).string.len = 13];
 
-    optional string firstName = 4;
+    optional string firstName = 4 [(validate.rules).string = {
+        pattern:   "^[a-zA-Z]+$",
+        min_bytes: 2,
+        max_bytes: 50,
+    }];
 
-    optional string lastName = 5;
+    optional string lastName = 5 [(validate.rules).string = {
+        pattern:   "^[a-zA-Z]+$",
+        min_bytes: 2,
+        max_bytes: 50,
+    }];
 
-    optional string email = 6;
+    optional string email = 6 [(validate.rules).string.email = true];
 }

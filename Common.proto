@@ -1,39 +1,43 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "open-taxi-service-proto/validate.proto";
 
 option go_package = "./;rpc";
 
 message CoordinateRemoteDataModel {
     
-    double latitude = 1;
+    double latitude = 1 [(validate.rules).double = {gte: -90,  lte: 90}];
     
-    double longitude = 2;
+    double longitude = 2 [(validate.rules).double = {gte: -180, lte: 180}];
 }
 
 message LocationRemoteDataModel {
     
-    optional string name = 1;
+    string name = 1;
 
-    optional string region = 2;
+    string region = 2;
     
-    optional CoordinateRemoteDataModel coordinate = 3;
-}
+    CoordinateRemoteDataModel coordinate = 3 [(validate.rules).message.required = true];
+} 
 
 // used to update driver location over udp
 message DriverLocationRemoteDataModel {
     
     message DriverCoordinateRemoteDataModel {
-        CoordinateRemoteDataModel coordinate = 1;
-        double horizontalAccuracy = 2;
-        google.protobuf.Timestamp timestamp = 3;
+
+        CoordinateRemoteDataModel coordinate = 1 [(validate.rules).message.required = true];
+        
+        double horizontalAccuracy = 2 [(validate.rules).double = {gte:0, lte: 100}];
+        
+        google.protobuf.Timestamp timestamp = 3 [(validate.rules).timestamp.within.seconds = 5];
     }
 
-    string token = 1;
+    string token = 1 [(validate.rules).string.pattern = "(^[\\w-]*\\.[\\w-]*\\.[\\w-]*$)"];
     
-    DriverCoordinateRemoteDataModel coordinate1 = 2;
+    DriverCoordinateRemoteDataModel coordinate1 = 2 [(validate.rules).message.required = true];
     
-    DriverCoordinateRemoteDataModel coordinate2 = 3;
+    DriverCoordinateRemoteDataModel coordinate2 = 3 [(validate.rules).message.required = true];
 }
 
 enum PaymentMethod {

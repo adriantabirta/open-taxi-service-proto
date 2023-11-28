@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
+import "open-taxi-service-proto/validate.proto";
 
 option go_package = "./;rpc";
 
@@ -16,7 +17,10 @@ message RegisterDeviceRemoteDataModel {
         android = 1;
     }
 
-    DeviceType deviceType = 1;
+    DeviceType deviceType = 1 [(validate.rules).enum.defined_only = true];
     
-    string deviceToken = 2;
+    // device tokens
+    // ios: up to 64 chars
+    // android: up to 152 chars
+    string deviceToken = 2 [(validate.rules).string = {min_len: 64, max_len:152}];
 }

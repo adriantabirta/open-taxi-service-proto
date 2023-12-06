@@ -22,7 +22,3 @@ if [ $? -eq 0 ]; then
 else
     echo -e "${RED}Cannot generate files!!!${NOCOLOR}"
 fi
-
-# echo "Generating new files..."
-
-# echo "Done!"

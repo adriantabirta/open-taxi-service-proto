@@ -25,7 +25,7 @@ message SendSmsCodeRemoteDataModel {
 
     string phoneNumber = 1 [(validate.rules).string = {prefix: "+373", min_len: 12, max_len:12}];
     
-    AccountType accountType = 2 [(validate.rules).enum = {in: [0,2]}];
+    AccountType accountType = 2 [(validate.rules).enum = {in: [1, 2]}];
 }
 
 message AuthenticationRemoteDataModel {

@@ -2,8 +2,8 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
-import "open-taxi-service-proto/Common.proto";
-import "open-taxi-service-proto/validate.proto";
+import "ProtoFiles/Common.proto";
+import "ProtoFiles/validate.proto";
 
 option go_package = "./;rpc";
 

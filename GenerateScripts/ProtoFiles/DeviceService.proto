@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
-import "open-taxi-service-proto/validate.proto";
+import "ProtoFiles/validate.proto";
 
 option go_package = "./;rpc";
 
